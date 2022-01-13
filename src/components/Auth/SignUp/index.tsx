@@ -168,10 +168,13 @@ const useStyles = makeStyles((theme) => ({
       background: "#E5E5E5", 
     },
     top: {
-      padding: '20px 70px',
+      padding: '10px 30px',
       display: "flex",
       justifyContent: "space-between",
-      alignItems: 'center'
+      alignItems: 'center',
+      '@media (min-width: 780px)': {
+        padding: '20px 70px',
+      }
     },
     logoWrap: {
       backgroundColor: "#FFFFFF",
