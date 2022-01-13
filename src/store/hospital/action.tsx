@@ -1,8 +1,9 @@
 import * as actionType from './type'
 import axiosConfig from '../../config/axiosConfig';
+import { hospitalReg, hospitalLogIn } from '../../interface/auth.interface'
 
-export const registerHospital = (payload) => async(dispath) => {
-    console.log(payload)
+export const registerHospital = (payload: hospitalReg) => async(dispath: any) => {
+   // console.log(payload)
    try {
       const response = await axiosConfig.post('/hospital/register', payload);
        console.log(response);
@@ -12,7 +13,7 @@ export const registerHospital = (payload) => async(dispath) => {
    } 
 }
 
-export const loginHospital= (payload) => async(dispath) => {
+export const loginHospital= (payload: hospitalLogIn) => async(dispath: any) => {
     try {
         const response = await axiosConfig.post('/hospital/login', payload);
          console.log(response);

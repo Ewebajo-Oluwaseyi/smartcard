@@ -6,7 +6,7 @@ const initialState = {
   loading: true
 }
 
-const hospitalReducer = (state=initialState, action) => {
+const hospitalReducer = (state=initialState, action: any) => {
     switch(action.type) {
       case reducerType.SET_HOSPITAL_LOADING:
          return {

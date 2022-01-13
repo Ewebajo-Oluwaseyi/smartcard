@@ -10,15 +10,11 @@ import Spinner from '../../Primitives/Spinner';
 import { connect } from 'react-redux';
 import { loginHospital } from '../../../store/hospital/action';
 import Logo from '../../../assets/logo/logo.png';
-
-type FormValues = {
-    email: string,
-    password: string
-}
+import { hospitalLogIn } from '../../../interface/auth.interface';
 
 const Login = (props: any) => {
     const classes = useStyles();
-    const {register, handleSubmit, formState: {errors}} = useForm<FormValues>()
+    const {register, handleSubmit, formState: {errors}} = useForm<hospitalLogIn>()
     const [isSubmit, setSubmit] = useState(false);
     const [passwordShown, setPasswordShown] = useState(false);
     const togglePasswordVisiblity = () => {
@@ -26,7 +22,7 @@ const Login = (props: any) => {
     };
     const { loginHospital } = props;
 
-    async function signUp(values: FormValues) {
+    async function signUp(values: hospitalLogIn) {
       //  console.log(values);
       loginHospital(values)
     };
