@@ -13,20 +13,17 @@ import { hospitalReg } from '../../../interface/auth.interface';
 
 const Signup = (props: any) => {
     const classes = useStyles();
-    const {register, handleSubmit, formState: {errors}} = useForm<hospitalReg>()
-    const [isSubmit, setSubmit] = useState(false);
+    const {register, handleSubmit, formState: {errors}} = useForm<hospitalReg>();
     const [passwordShown, setPasswordShown] = useState(false);
     const togglePasswordVisiblity = () => {
         setPasswordShown(passwordShown ? false : true);
     };
     const { registerHospital } = props;
+    const { loading } = props.hospital;
 
     async function signUp(values: hospitalReg) {
-      //  console.log(values); 
       try{
-        setSubmit(true)
         registerHospital(values);
-        setSubmit(false)
       } catch(error) {
         console.log(error)
       }
@@ -134,8 +131,8 @@ const Signup = (props: any) => {
                        })}
                        required
                      />
-                    <button className={classes.signUp} type="submit" disabled={isSubmit}>
-                        {isSubmit ? <Spinner className={classes.spinner}/> : 'Register'}
+                    <button className={classes.signUp} type="submit" disabled={loading}>
+                        {loading ? <Spinner className={classes.spinner}/> : 'Register'}
                     </button>
                   </form>
                   <div className={classes.account}>

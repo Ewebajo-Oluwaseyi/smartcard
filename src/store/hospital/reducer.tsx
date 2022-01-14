@@ -3,12 +3,22 @@ import * as reducerType from './type'
 const initialState = {
   user: [],
   error: "",
-  loading: true
+  loading: false
 }
 
 const hospitalReducer = (state=initialState, action: any) => {
     switch(action.type) {
-      case reducerType.SET_HOSPITAL_LOADING:
+      case reducerType.POST_HOSPITAL_SUCESS:
+        return {
+         ...state,
+         user: action.payload
+       }
+      case reducerType.POST_HOSPITAL_FAILURE:
+        return {
+         ...state,
+         error: action.payload
+       }
+      case reducerType.SET_LOADING:
          return {
           ...state,
           loading: action.payload
