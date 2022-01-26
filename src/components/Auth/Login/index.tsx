@@ -24,7 +24,11 @@ const Login = (props: any) => {
 
     async function signUp(values: hospitalLogIn) {
       //  console.log(values);
-      loginHospital(values)
+      try{
+        loginHospital(values);
+      } catch(error) {
+        console.log(error)
+      }
     };
 
 
@@ -109,8 +113,7 @@ export default connect(mapStateToProps, { loginHospital })(Login)
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    background: "#E5E5E5", 
-    height: '100vh'
+    background: "#E5E5E5",
   },
   top: {
     padding: '10px 30px',
@@ -143,14 +146,12 @@ const useStyles = makeStyles((theme) => ({
     paperStyle: {
       padding: '20px 10px',
       width: 500,
-      maxHeight: '60vh',
       textAlign: 'center',
-      margin: '3rem 2rem',
+      margin: '3rem 2rem 5rem',
       '@media (min-width: 780px)': {
         padding: '30px 10px',
         width: 400,
-        margin: '1rem',
-        maxHeight: '65vh',
+        margin: '1rem 1rem 3rem',
       }
     },
     heading: {
