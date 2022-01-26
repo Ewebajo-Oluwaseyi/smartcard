@@ -1,7 +1,7 @@
 import React from 'react'
 import { AppBar, Toolbar,  Typography, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -26,8 +26,13 @@ export const Header = () => {
                     <Typography variant="h5" className={classes.title}>
                         {'SmartHealth-Records'}
                     </Typography>
-
-                    <Button color="inherit">Sign-In</Button>
+                    
+                    <Button color="inherit" href="/login">
+                      Login
+                    </Button>
+                    <Button color="inherit" href="/sign-up">
+                      Sign-In 
+                    </Button>
                 </Toolbar>
             </AppBar>            
         </div>
